@@ -1,0 +1,54 @@
+# India holiday definitions for the Holidays gem
+ 
+# Many festivals are dependent on the Hindu calendar and has to be updated yearly.
+
+# Source:
+# https://sephora-asia.atlassian.net/wiki/spaces/ENG/pages/63021875902/India+Public+Holidays+2022
+
+months:
+  1:
+  - name: Makara Sankranti
+    regions: [in]
+    mday: 14
+  - name: Republic Day
+    regions: [in]
+    mday: 26
+  3:
+  - name: Maha Shivaratri
+    regions: [in]
+    mday: 1
+  - name: Holi
+    regions: [in]
+    mday: 18
+  - name: Rang Panchami
+    regions: [in]
+    mday: 22
+  4:
+  - name: Good Friday
+    regions: [in]
+    mday: 15
+  5:
+  - name: Idul Fitr
+    regions: [in]
+    mday: 3
+  8:
+  - name: Janmashtami
+    regions: [in]
+    mday: 18
+  - name: Ganesh Chaturthi
+    regions: [in]
+    mday: 31
+  10:
+  - name: Vijaya Dashami / Dussehra
+    regions: [in]
+    mday: 5
+  - name: Diwali
+    regions: [in]
+    mday: 24
+  - name: Diwali
+    regions: [in]
+    mday: 25
+  11:
+  - name: Kannada Rajyotsava
+    regions: [in]
+    mday: 1
