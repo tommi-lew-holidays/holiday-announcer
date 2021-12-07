@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/tommi-lew/holidays.git
+  revision: b667354f24d685636e00d18be305e80e46a3c807
+  specs:
+    holidays (8.4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -9,7 +15,6 @@ GEM
     dotenv (2.2.1)
     excon (0.59.0)
     hashdiff (0.3.7)
-    holidays (6.2.0)
     public_suffix (3.0.0)
     rake (12.1.0)
     rspec (3.7.0)
@@ -38,7 +43,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   excon
-  holidays
+  holidays!
   rake
   rspec
   timecop
