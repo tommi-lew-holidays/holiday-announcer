@@ -4,7 +4,7 @@ RACK_ENV = 'test'
 
 # Load environment variables with dotenv gem
 require 'dotenv'
-Dotenv.load
+Dotenv.load('.env.test')
 
 Dir["#{File.dirname(__FILE__)}/../lib/**/*.rb"].each { |f| require f }
 
