@@ -8,7 +8,7 @@ describe Secretary do
 
     def add_stubs
       stub_request(:get, webhook_url).
-        with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow. Happy National Day!" }).
+        with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow, the team based in sg will be out of office." }).
         to_return(status: 200)
     end
 
@@ -21,7 +21,7 @@ describe Secretary do
         Secretary.new.call
       end
 
-      expect(WebMock).to have_requested(:get, webhook_url).with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow. Happy National Day!" })
+      expect(WebMock).to have_requested(:get, webhook_url).with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow, the team based in sg will be out of office." })
     end
   end
 end
