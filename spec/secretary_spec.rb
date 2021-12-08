@@ -2,26 +2,15 @@ require 'spec_helper'
 
 describe Secretary do
   describe 'next day is a holiday' do
-    def webhook_url
-      ENV['ANNOUNCEMENT_WEBHOOK_URL']
-    end
-
-    def add_stubs
-      stub_request(:get, webhook_url).
-        with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow, the team based in sg will be out of office." }).
-        to_return(status: 200)
-    end
-
     it 'triggers an annoucement' do
-      add_stubs
-      current_year = Date.today.year
+      allow_any_instance_of(MessageGenerator).to receive(:call).and_return('fake message')
 
-      # Singapore's National Day
-      Timecop.freeze(Date.new(Date.today.year, 8, 8)) do
-        Secretary.new.call
-      end
-
-      expect(WebMock).to have_requested(:get, webhook_url).with(query: { 'targets' => '#general', 'message' => "It's National Day in sg tomorrow, the team based in sg will be out of office." })
+      annoucer_double = double(Announcer)
+      expect(Announcer).to receive(:new).with(message: 'fake message').and_return(annoucer_double)
+      expect(annoucer_double).to receive(:call)
+      
+      # Singapore's National Day is on the 9 August
+      Timecop.freeze(Date.new(Date.today.year, 8, 8)) { Secretary.new.call }
     end
   end
 end

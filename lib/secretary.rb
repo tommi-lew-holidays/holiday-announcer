@@ -1,23 +1,33 @@
 class Secretary
   def call
-    if tomorrows_holiday
-      message = message(country, tomorrows_holiday[:name])
+    tomorrows_holidays.each do |holiday|
+      holiday_info = extract_holiday_information(holiday)
+      message = MessageGenerator.new(holiday_info[:countries], holiday_info[:name]).call
       Announcer.new(message: message).call
     end
   end
 
   private
 
-  def country
-    :sg
+  def countries
+    [
+      :in,
+      :kr,
+      :sg,
+      :ua
+    ]
   end
 
-  def tomorrows_holiday
+  def tomorrows_holidays
     tomorrow = Date.today + 1
-    Holidays.on(tomorrow, country)&.first
+    Holidays.on(tomorrow, countries)
   end
 
-  def message(country, holiday_name)
-    "It's #{holiday_name} in #{country} tomorrow, the team based in #{country} will be out of office."
+  # Extract holiday information returned by Holidays gem
+  def extract_holiday_information(holiday)
+    {
+      name: holiday[:name],
+      countries: holiday[:regions].join(', ')
+    }
   end
 end
