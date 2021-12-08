@@ -1,0 +1,21 @@
+# Custom holiday definitions for testing
+---
+months:
+  1:
+  - name: Special Holiday
+    regions: [kr]
+    mday: 2
+
+  2:
+  - name: IN Holiday on 2nd Feb
+    regions: [in]
+    mday: 2
+  - name: SG Holiday on 2nd Feb
+    regions: [sg]
+    mday: 2
+  
+  3:
+  # Common holiday on the same day
+  - name: Special International Day
+    regions: [in, kr]
+    mday: 2

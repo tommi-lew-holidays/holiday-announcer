@@ -18,3 +18,6 @@ include WebMock::Matchers
 RSpec.configure do |config|
   config.mock_with :rspec
 end
+
+# Load custom definitions for testing
+Holidays.load_custom("#{File.dirname(__FILE__)}/../spec/fixtures/holidays.yaml")

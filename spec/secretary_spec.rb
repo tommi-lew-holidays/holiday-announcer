@@ -9,8 +9,7 @@ describe Secretary do
       expect(Announcer).to receive(:new).with(message: 'fake message').and_return(annoucer_double)
       expect(annoucer_double).to receive(:call)
       
-      # Singapore's National Day is on the 9 August
-      Timecop.freeze(Date.new(Date.today.year, 8, 8)) { Secretary.new.call }
+      Timecop.freeze(Date.new(Date.today.year, 1, 1)) { Secretary.new.call }
     end
   end
 end
