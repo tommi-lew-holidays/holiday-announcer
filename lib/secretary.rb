@@ -3,7 +3,7 @@ class Secretary
     holidays = HolidaysExtractor.new.call
     
     holidays.each do |holiday|  
-      message = MessageGenerator.new(holiday[:name], holiday[:countries]).call
+      message = MessageGenerator.new(holiday[:countries], holiday[:name]).call
       Announcer.new(message: message).call
     end
   end
